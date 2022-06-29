@@ -1,6 +1,8 @@
 var mongodb = require("mongodb");
+const dotenv = require('dotenv');
+require('dotenv').config();
 var MongoClient = mongodb.MongoClient;
-var dbName = "disneypulhotstart";
+var dbName =process.env.MONGO_DB;
 
-var dburl = `mongodb+srv://aishwaryagandhi:ManyaMau1921@cluster0.fwpds.mongodb.net/${dbName}`;
+var dburl = process.env.MONGO_URL
 module.exports = { mongodb, MongoClient, dburl };
