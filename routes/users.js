@@ -393,7 +393,7 @@ router.post("/sign-up", async (req, res) => {
   const client = await MongoClient.connect(dburl);
   try {
     let db = await client.db("disneypulhotstart");
-    let user = await db.collection("users").find({ email: req.body.email });
+    let user = await db.collection("users").find({ email: req.body.email }).toArray();
     if (user.length > 0) {
       res.json({
         statusCode: 400,
