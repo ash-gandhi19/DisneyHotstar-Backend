@@ -397,7 +397,7 @@ router.post("/sign-up", async (req, res) => {
     if (user.length > 0) {
       res.json({
         statusCode: 400,
-        message: "User does not exist",
+        message: "User already exist",
       });
     } else {
       let hashedPassword = await hashPassword(
